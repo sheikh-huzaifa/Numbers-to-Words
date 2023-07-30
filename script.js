@@ -137,8 +137,8 @@ let numberToWords = (x) =>{
                 
                 // 1,00,000-99,99,999
                 if (inputNumToArray.length==6 || inputNumToArray.length==7) {
-                    wordsOutput=fiveDigit();
-                    inputNumToArray.length==6?wordsOutput = `${wordsArray[reverseArray[5]-1]} ${wordsArrayHundred[2]} ${wordsOutput} `: sevenDigit()
+                    
+                    inputNumToArray.length==6?wordsOutput = `${wordsArray[reverseArray[5]-1]} ${wordsArrayHundred[2]} ${fiveDigit()} `: sevenDigit()
                 }
                 //1,00,00,000 - 99,99,99,999
                 if (inputNumToArray.length==8 || inputNumToArray.length==9 ) {
