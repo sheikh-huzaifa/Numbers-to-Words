@@ -167,9 +167,10 @@ let numberToWords = (x) =>{
                       
                 }
                 wordsOutput = String(wordsOutput).replaceAll(","," ")
+                console.log(wordsOutput);
                 
                 
-                document.getElementById("outputArea").value= wordsOutput
+                document.getElementById("outputArea").innerText= wordsOutput
         
     }     
 
