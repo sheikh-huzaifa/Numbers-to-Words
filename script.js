@@ -30,6 +30,13 @@ let numberToWords = (x) =>{
                     lastTwoDigit = wordsArray[parseInt(`${reverseArray[1]}${reverseArray[0]}`)-1]    
                 }
             }
+            if (reverseArray[0]==0 && reverseArray[1]!=0) {
+                lastTwoDigit = `${wordsArrayTens[reverseArray[1]-2]} `
+                
+            }if (reverseArray[0]!==0 && reverseArray[1]==0) {
+                lastTwoDigit = `${wordsArray[reverseArray[0]-1]} `
+                
+            }
             wordsOutput+= lastTwoDigit
             return wordsOutput 
         }
@@ -53,14 +60,15 @@ let numberToWords = (x) =>{
         // Five Digit Function  
         let fiveDigit=()=>{
             let tenThousands
-            threeDigit()
+            
 
             if (reverseArray[4]>=2) {
                 tenThousands = `${wordsArrayTens[reverseArray[4]-2]} ${wordsArray[reverseArray[3]-1]}`
             } else {
                 tenThousands = wordsArray[parseInt(`${reverseArray[4]}${reverseArray[3]}`)-1]    
+                console.log();
             }                       
-            wordsOutput = `${tenThousands} ${wordsArrayHundred[1]} ${wordsOutput} `
+            wordsOutput = `${tenThousands} ${wordsArrayHundred[1]} ${threeDigit()} `
             
             return wordsOutput 
             
@@ -174,19 +182,19 @@ let numberToWords = (x) =>{
                     }}}
                 
 
-
+                    
                 wordsOutput = String(wordsOutput).split(" ").map(String)
                 for (let i = 0; i < wordsOutput.length; i++) {
                     var idx = wordsOutput.indexOf("undefined");
 
                     if (idx != -1){
-                    wordsOutput.splice(idx);
-                    wordsOutput.splice(idx+1);
+                    wordsOutput.splice(idx,1);
+                    
                     } 
                       
                 }
                 wordsOutput = String(wordsOutput).replaceAll(","," ")
-                console.log(wordsOutput);
+                
                 
                 
                 document.getElementById("outputArea").innerText= wordsOutput
