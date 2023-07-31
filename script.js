@@ -5,7 +5,11 @@ let numberToWords = (x) =>{
     const wordsArrayHundred = ['Hundred','Thousand','Lakh','Crore','Arad','Kharab'];
     
     // For Value between 1-20
-    let smallValue =() =>console.log(wordsArray[inputNumToArray-1]);
+    let smallValue =() =>{
+        
+        wordsOutput= wordsArray[inputNumToArray-1];
+        document.getElementById("outputArea").innerText = wordsOutput
+}
     // For value from 21 and soo on
     let largeValue = () =>{
         let reverseArray = inputNumToArray.reverse()
@@ -153,6 +157,21 @@ let numberToWords = (x) =>{
                 if (inputNumToArray.length==12 || inputNumToArray.length==13) {
                     inputNumToArray.length==12 ?wordsOutput = `${wordsArray[reverseArray[11]-1]} ${wordsArrayHundred[5]} ${elevenDigit()} ` : thirteenDigit()
                 }
+                if (inputNumToArray.length==14 ||inputNumToArray.length==15) {
+                    if (inputNumToArray.length==14) {
+                        
+                        if(reverseArray[13]!==0){
+                            console.log(wordsOutput);
+                            wordsOutput = `${wordsArray[reverseArray[13]-1]} ${wordsArrayHundred[0]} ${thirteenDigit()} `
+                            console.log(wordsOutput);
+                    }  }
+                   else {
+                     
+                     if(reverseArray[13]!==0){
+                        wordsOutput = `${wordsArray[reverseArray[13]-1]} ${wordsArrayHundred[0]} ${thirteenDigit()} `
+                        wordsOutput = `${wordsArray[reverseArray[14]-1]} ${wordsArrayHundred[1]} ${wordsOutput} `
+                    
+                    }}}
                 
 
 
@@ -204,4 +223,4 @@ let convertNow=()=>{
 }
 
 
-
+    
